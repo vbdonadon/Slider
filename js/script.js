@@ -1,17 +1,13 @@
 // Selecionando todos os itens
 const slide = document.querySelector('.slide')
 
+
 // Tamanho da margem
-const margin = 10
+const margin = 40
 const doubMargin = margin * 2
 
-// Quantidade de itens 
-let qnt = 2;
-let qntItem = document.querySelectorAll('.slide li')
-qntItem.forEach((element) => {
-    element.setAttribute("style", `width:${100/qnt}%; margin-left: ${margin}px; margin-right: ${margin}px`)
-    element.setAttribute("style", `width:${100/qnt}%; margin-left: ${margin}px; margin-right: ${margin}px`)
-})
+// Max width
+const maxWidth = window.innerWidth - doubMargin
 
 // Se objeto for loop falso
 // Loop false
@@ -26,6 +22,12 @@ larguraMaxima.forEach((element) => {
 
 // Se objeto for loop true
 
+// Quantidade de itens 
+let qnt = 2;
+let qntItem = document.querySelectorAll('.slide li')
+qntItem.forEach((element) => {
+    element.setAttribute("style", `width:${maxWidth/qnt}px; margin-left: ${margin}px; margin-right: ${margin}px`)
+})
 
 // Tamanho dos itens
 let item = document.querySelector('.slide li')
