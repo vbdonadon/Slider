@@ -42,6 +42,7 @@ img {
 
 .button {
     text-decoration: none;
+    font-size: 30px;
     cursor: pointer;
     margin: 10px;
-}
+}   
