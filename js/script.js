@@ -1,67 +1,57 @@
-// Selecionando todos os itens
-const slide = document.querySelector('.slide')
+// Retuns the array of items
+const SlideArray = document.querySelectorAll('.slide li')
 
+// Return the UL
+const SlideUL = document.querySelector('.slide')
 
-// Tamanho da margem
-const margin = 20
-const doubMargin = margin * 2
+// Margin size 
+let Margin = 20;
+let DoubleMargin = Margin * 2;
 
-// Max width
-const maxWidth = window.innerWidth
+// Items on screen
+let ItemsOnScreen = 2;
 
-// Se objeto for loop falso
-// Loop false
-let larguraMaxima = document.querySelectorAll('.slide li')
-let length = larguraMaxima.length
-larguraMaxima.forEach((element) => {
-    let totalItem = 0;
-    let eachItem = 0;
-    eachItem = element.offsetWidth
-    totalItem = totalItem + eachItem 
-})
+// Width from window
+let WindowSize = 0;
+WindowSize = window.innerWidth;
 
-// Se objeto for loop true
+// Item size
+let WindowInner = 0;
+WindowInner = (WindowSize/ItemsOnScreen) - DoubleMargin;
 
+// Stores the Element Width
+SlideArray.forEach((element) => {
+    element.setAttribute("style", `width: ${WindowInner}px; margin-left: ${Margin}px; margin-right: ${Margin}px`)
+});
 
-// Quantidade de itens 
-let qnt = 1;
-let FinalWidth = (maxWidth/qnt) - (doubMargin)
-console.log((margin * (qnt * 2)))
+// Array Length
+let SlideLength = SlideArray.length
 
-let qntItem = document.querySelectorAll('.slide li')
-qntItem.forEach((element) => {
-    element.setAttribute("style", `width:${FinalWidth}px; margin-left: ${margin}px; margin-right: ${margin}px`)
-})
+// Stores X-axis value
+let TranslateX = 0;
 
-// Tamanho dos itens
-let item = document.querySelector('.slide li')
-item = item.offsetWidth
+// A counter to compare with array length
+let Counter = 0;
 
-// Variavel para armazenar valor final
-let total = 0
-let itens = 0
-
-// Selecionando o botão esquerdo
-const lButton = document.querySelector('.left-button')
-lButton.addEventListener('click', function(){
-    if(itens > 0){
-    total += (maxWidth / qnt)
-    itens--
-    slide.setAttribute("style", `transform: translateX(${total}px)`)
+// Slider Buttons
+const LeftButton = document.querySelector('.left-button')
+LeftButton.addEventListener('click', function(){
+    if(Counter > 0){
+    TranslateX += WindowSize/ItemsOnScreen
+    Counter--
+    SlideUL.setAttribute("style", `transform: translateX(${TranslateX}px)`)
     } else {
-        total -= 0
+        TranslateX -= 0
+    }
+});
+
+const RightButton = document.querySelector('.right-button')
+RightButton.addEventListener('click', function(){
+    if(Counter < (SlideLength - 1)){
+        TranslateX -= WindowSize/ItemsOnScreen
+        Counter++
+        SlideUL.setAttribute("style", `transform: translateX(${TranslateX}px)`)
+    } else {
+        TranslateX += 0
     }
 })
-
-// Selecionando o botão direito
-const rButton = document.querySelector('.right-button')
-rButton.addEventListener('click', function(){
-    if(itens < (larguraMaxima.length - 1)){
-        total -= (maxWidth / qnt)
-        itens++
-        slide.setAttribute("style", `transform: translateX(${total}px)`)
-    } else {
-        total += 0
-    }
-})
-
