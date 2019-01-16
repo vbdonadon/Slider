@@ -9,31 +9,42 @@
 <body>
     <div class="wrapper">
         <ul class="slide">
-            <li>
+            <li class="item">
                 <img src="img/2000x500.png" alt="">
             </li>
             
-            <li>
+            <li class="item">
                 <img src="img/2000x500.png" alt="">
             </li>
 
-            <li>
+            <li class="item">
                 <img src="img/2000x500.png" alt="">
             </li>
 
-            <li>
+            <li class="item">
                 <img src="img/2000x500.png" alt="">
             </li>
 
-            <li>
+            <li class="item">
                 <img src="img/2000x500.png" alt="">
             </li>
         </ul>
         <div class="buttons">
-            <a class="left-button button">&larr;</a>
-            <a class="right-button button">&rarr;</a>
+            <a class="left-button button">
+                <img src="img/arr.png" alt="">
+            </a>
+            <a class="right-button button">
+                <img src="img/arr.png" alt="">
+            </a>
         </div>
     </div>
     <script src="js/script.js"></script>
+
+    <script>
+        Slider({
+            Margin: 20,
+            ItemsOnScreen: 1
+        })
+    </script>
 </body>
 </html>
